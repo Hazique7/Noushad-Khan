@@ -332,3 +332,58 @@
     margin-left: 4em;
   }
 }
+
+/* Extra Small Mobile: 320 x 480 */
+@media (max-width: 320px) {
+  .headerText h1 {
+    font-size: 1rem;   /* smaller heading */
+    font-weight: 700;
+  }
+
+  .headerText p {
+    font-size: 0.75rem;
+  }
+
+  .customSwiper {
+    width: 95%;
+    max-width: 280px;
+    margin: 0.5rem auto;
+  }
+
+  .slideContent {
+    height: 140px; /* shorter carousel for tiny screens */
+  }
+
+  .slideOverlay {
+    font-size: 1rem;
+  }
+
+  .infoSection {
+    padding: 1rem;
+    max-height: 45vh;  /* allow more scroll space */
+  }
+
+  .infoSection h3 {
+    font-size: 1rem;
+  }
+
+  .infoSection h4 {
+    font-size: 0.9rem;
+  }
+
+  .infoSection ul {
+    font-size: 0.85rem;
+  }
+
+  .infoSection p {
+    font-size: 0.8rem;
+  }
+
+  .contactBtn {
+    margin-left: 0;              /* center instead of 200px offset */
+    display: block;
+    margin: 0.8rem auto 0;       /* center button */
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}

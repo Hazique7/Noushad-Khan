@@ -1,0 +1,140 @@
+/* Existing mobile styles (max-width: 420px) remain unchanged */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, #000000, #FFE3CA);
+  overflow: hidden;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  z-index: 10;
+  color: white;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+}
+
+.subHeading {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.imageWrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  z-index: 1;
+}
+
+.imageWrapper > span {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.imageWrapper img {
+  object-fit: cover !important;
+  object-position: center bottom !important;
+}
+
+.MYBUTTON {
+     /* margin-top: 1rem; */
+  padding: 0.8rem 1.5rem;
+  background: #000000d5;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+    /* width:11rem; */
+    /* height: 2.5rem; */
+    z-index: 9999;
+    position: absolute;
+    margin-top: 570px;
+    margin-left: 117px;
+}
+
+/* Hide desktop elements on mobile by default */
+.desktop-only {
+  display: none;
+}
+
+/* --- DESKTOP STYLES (for screens wider than 420px) --- */
+@media (min-width: 421px) {
+  /* Hide mobile-specific elements */
+  .mobile-only {
+    display: none;
+  }
+  /* Show desktop-specific elements */
+  .desktop-only {
+    display: block;
+  }
+
+  /* Desktop Container */
+  .container {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), #fff0e3);
+  }
+
+  /* Desktop Text */
+  .textOverlay {
+    user-select: none;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .mainHeading {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .subHeading {
+    font-size: 2rem;
+  }
+
+  /* Desktop Image */
+  .imageWrapper {
+    
+    height: 100%;
+    width: 100%;
+  }
+
+  .imageWrapper img {
+    object-position: center 30% !important;
+  }
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.644); /* black overlay */
+  z-index: 2;
+}
+  /* Desktop Button */
+  .MYBUTTON {
+    user-select: none;
+    position: absolute;
+    bottom: 25vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+}

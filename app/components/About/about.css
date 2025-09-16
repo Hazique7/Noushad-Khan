@@ -1,0 +1,334 @@
+.carouselContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000;
+}
+
+/* Background image + gradient */
+.backgroundWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.overlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #fff0e3);
+  z-index: 1; /* 👈 above image but below text */
+}
+
+/* Header text */
+.headerText {
+  text-align: center;
+  color: #fff0e3;
+}
+
+.MobileH1 {
+  font-size: 0.1rem;
+  font-weight: 400;
+}
+
+.Mobilep {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+/* Carousel */
+.customSwiper {
+  width: 90%;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+.slideContent {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.slideOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.589);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 16px;
+}
+
+/* Info Section (Mobile) */
+.infoSection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff0e3;
+  padding: 1.5rem;
+  text-align: left;
+  z-index: 2;
+  max-height: 37vh;
+}
+
+.infoSection h3 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.infoSection ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.infoSection h4 {
+  font-weight: 700;
+}
+
+.contactBtn {
+  margin-top: 0.1rem;
+  padding: 0.8rem 1.5rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 200px; /* This is specific to mobile, might need adjustment */
+}
+
+.headerText,
+.customSwiper,
+.infoSection {
+  z-index: 2; /* 👈 always above background + gradient */
+}
+
+.headerText {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 1rem;
+  text-align: left;
+  color: #fff0e3;
+  padding: 0 2rem;
+}
+
+.headerText h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.headerText p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 700px;
+}
+
+.Desktop {
+  display: none;
+}
+
+@media (min-width: 421px) {
+  .Desktop {
+    display: block;
+    /* Removed position: relative here as it's not needed if the card is a child of infoSection1 */
+  }
+  .Mobile {
+    display: none;
+  }
+
+  .customSwiper {
+    margin-top: 0px;
+    border-radius: 0;
+    width: 100vw;
+    height: 55vh;
+    max-width: none;
+  }
+
+  .slideContent {
+    border-radius: 0;
+    height: 100%;
+  }
+
+  .slideOverlay {
+    border-radius: 0;
+  }
+  .overlayGradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8));
+    z-index: 1;
+  }
+  .customSwiper {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .customSwiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .globalOverlay {
+    user-select: none;
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    z-index: 2;
+    color: white;
+    text-align: left;
+  }
+
+  .globalOverlay h1 {
+    font-size: 5.5rem;
+   font-weight: 700;
+  }
+
+  .globalOverlay p {
+    font-weight: thin;
+    font-size: 2rem;
+    margin-left: 9em;
+    margin-top: -6rem;
+  }
+
+  /* Main container for the bottom section - now contains info AND card */
+  .infoSection1 {
+    margin-top: -20px;
+    bottom: 0;
+    color: #211409;
+    position: relative; /* KEY CHANGE: Makes this a positioning context for .clientsCard */
+    background: #fff0e3;
+    padding: 1.5rem 3%; /* Adjusted padding for better layout */
+    text-align: left;
+    min-height: 47vh; /* Covers 40% of screen height */
+    /* display: flex; Use flexbox for side-by-side layout */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+    justify-content: space-between; /* Push content and card apart */
+    align-items: flex-start; /* Align items to the top */
+  }
+
+  .infoSection1 h3 {
+    font-weight: 400;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    flex: 1; /* Allow info text to grow */
+    margin-right: 20px; /* Space between text and card */
+  }
+
+  .infoSection1 ul {
+    font-size: 1.4rem;
+    margin: 0.5rem 0 1rem;
+    padding-left: 1.2rem;
+    flex: 1; /* Allow info text to grow */
+    margin-right: 20px; /* Space between text and card */
+  }
+  
+  .infoSection1 h4 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    flex: 1; /* Allow info text to grow */
+    margin-right: 20px; /* Space between text and card */
+  }
+  
+  .infoSection1 p {
+    font-weight: 400;
+
+    font-size: 1rem; /* Slightly smaller for readability in the main text */
+    flex: 1; /* Allow info text to grow */
+    margin-right: 20px; /* Space between text and card */
+  }
+
+  .contactBtn {
+    margin-top: 0.71rem;
+    padding: 1rem 1.5rem;
+    background: #211409;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .contactWrapper {
+    display: flex;
+    justify-content: flex-end; /* pushes button to extreme right */
+    width: 100%; /* Make wrapper take full width to push button right */
+  }
+
+  /* ========================================= */
+  /* New CSS for the Clients Card */
+  /* ========================================= */
+  .clientsCard {
+    user-select: none;
+    /* Positioning relative to .infoSection1 */
+    position: absolute; /* Changed from relative for better placement control */
+    top: 50%; /* Position it vertically in the middle */
+    right: 3%; /* Position it to the right, adjust as needed */
+    transform: translateY(-50%); /* Center it vertically */
+    width: 35%; /* Make it take up a third of the width */
+    max-width: 450px; /* Max width for larger screens */
+    
+    /* Styling */
+    background: linear-gradient(to bottom, #fff0e3, #fff0e3);
+    padding: 30px;
+    /* border-radius: 15px; */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.514);
+    color: #211409;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 3; /* Ensures it's above other elements within .infoSection1 */
+  }
+
+  .clientsCard h6 {
+    
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .clientsCard p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+
+  .clientsCard p:last-of-type {
+    margin-bottom: 25px; /* Add space before the button */
+  }
+
+  .cardButtonWrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  .cardContactBtn {
+    padding: 15px 40px;
+    background-color: #211409;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .infosection_cover{
+    user-select: none;
+    margin-left: 4em;
+  }
+}

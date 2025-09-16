@@ -1,3 +1,7 @@
+/* ======================= */
+/* 1. Base Styles          */
+/* ======================= */
+
 .carouselContainer {
   position: relative;
   width: 100vw;
@@ -21,13 +25,29 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #fff0e3);
-  z-index: 1; /* 👈 above image but below text */
+  z-index: 1;
 }
 
 /* Header text */
 .headerText {
-  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 1rem;
+  text-align: left;
   color: #fff0e3;
+  padding: 0 2rem;
+}
+
+.headerText h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.headerText p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-width: 700px;
 }
 
 .MobileH1 {
@@ -106,44 +126,26 @@
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
-  margin-left: 200px; /* This is specific to mobile, might need adjustment */
+  margin-left: 200px; /* default, overridden on mobile */
 }
 
 .headerText,
 .customSwiper,
 .infoSection {
-  z-index: 2; /* 👈 always above background + gradient */
-}
-
-.headerText {
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto 1rem;
-  text-align: left;
-  color: #fff0e3;
-  padding: 0 2rem;
-}
-
-.headerText h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.headerText p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  max-width: 700px;
+  z-index: 2;
 }
 
 .Desktop {
   display: none;
 }
 
+/* ======================= */
+/* 2. Desktop Styles       */
+/* ======================= */
+
 @media (min-width: 421px) {
   .Desktop {
     display: block;
-    /* Removed position: relative here as it's not needed if the card is a child of infoSection1 */
   }
   .Mobile {
     display: none;
@@ -155,6 +157,8 @@
     width: 100vw;
     height: 55vh;
     max-width: none;
+    position: relative;
+    overflow: hidden;
   }
 
   .slideContent {
@@ -165,16 +169,12 @@
   .slideOverlay {
     border-radius: 0;
   }
+
   .overlayGradient {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8));
     z-index: 1;
-  }
-  .customSwiper {
-    position: relative;
-    width: 100vw;
-    overflow: hidden;
   }
 
   .customSwiper img {
@@ -195,7 +195,7 @@
 
   .globalOverlay h1 {
     font-size: 5.5rem;
-   font-weight: 700;
+    font-weight: 700;
   }
 
   .globalOverlay p {
@@ -205,51 +205,48 @@
     margin-top: -6rem;
   }
 
-  /* Main container for the bottom section - now contains info AND card */
   .infoSection1 {
     margin-top: -20px;
     bottom: 0;
     color: #211409;
-    position: relative; /* KEY CHANGE: Makes this a positioning context for .clientsCard */
+    position: relative;
     background: #fff0e3;
-    padding: 1.5rem 3%; /* Adjusted padding for better layout */
+    padding: 1.5rem 3%;
     text-align: left;
-    min-height: 47vh; /* Covers 40% of screen height */
-    /* display: flex; Use flexbox for side-by-side layout */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
-    justify-content: space-between; /* Push content and card apart */
-    align-items: flex-start; /* Align items to the top */
+    min-height: 47vh;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .infoSection1 h3 {
     font-weight: 400;
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    flex: 1; /* Allow info text to grow */
-    margin-right: 20px; /* Space between text and card */
+    flex: 1;
+    margin-right: 20px;
   }
 
   .infoSection1 ul {
     font-size: 1.4rem;
     margin: 0.5rem 0 1rem;
     padding-left: 1.2rem;
-    flex: 1; /* Allow info text to grow */
-    margin-right: 20px; /* Space between text and card */
+    flex: 1;
+    margin-right: 20px;
   }
-  
+
   .infoSection1 h4 {
     font-weight: 600;
     font-size: 1.4rem;
-    flex: 1; /* Allow info text to grow */
-    margin-right: 20px; /* Space between text and card */
+    flex: 1;
+    margin-right: 20px;
   }
-  
+
   .infoSection1 p {
     font-weight: 400;
-
-    font-size: 1rem; /* Slightly smaller for readability in the main text */
-    flex: 1; /* Allow info text to grow */
-    margin-right: 20px; /* Space between text and card */
+    font-size: 1rem;
+    flex: 1;
+    margin-right: 20px;
   }
 
   .contactBtn {
@@ -261,40 +258,33 @@
     border-radius: 999px;
     font-weight: 600;
     cursor: pointer;
+    margin-left: 0; /* override desktop */
   }
 
   .contactWrapper {
     display: flex;
-    justify-content: flex-end; /* pushes button to extreme right */
-    width: 100%; /* Make wrapper take full width to push button right */
+    justify-content: flex-end;
+    width: 100%;
   }
 
-  /* ========================================= */
-  /* New CSS for the Clients Card */
-  /* ========================================= */
   .clientsCard {
     user-select: none;
-    /* Positioning relative to .infoSection1 */
-    position: absolute; /* Changed from relative for better placement control */
-    top: 50%; /* Position it vertically in the middle */
-    right: 3%; /* Position it to the right, adjust as needed */
-    transform: translateY(-50%); /* Center it vertically */
-    width: 35%; /* Make it take up a third of the width */
-    max-width: 450px; /* Max width for larger screens */
-    
-    /* Styling */
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    width: 35%;
+    max-width: 450px;
     background: linear-gradient(to bottom, #fff0e3, #fff0e3);
     padding: 30px;
-    /* border-radius: 15px; */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.514);
     color: #211409;
     text-align: center;
     box-sizing: border-box;
-    z-index: 3; /* Ensures it's above other elements within .infoSection1 */
+    z-index: 3;
   }
 
   .clientsCard h6 {
-    
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 20px;
@@ -308,7 +298,7 @@
   }
 
   .clientsCard p:last-of-type {
-    margin-bottom: 25px; /* Add space before the button */
+    margin-bottom: 25px;
   }
 
   .cardButtonWrapper {
@@ -327,16 +317,20 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  .infosection_cover{
+
+  .infosection_cover {
     user-select: none;
     margin-left: 4em;
   }
 }
 
-/* Extra Small Mobile: 320 x 480 */
+/* ======================= */
+/* 3. Extra Small Mobiles  */
+/* ======================= */
+
 @media (max-width: 320px) {
-  .headerText h1 {
-    font-size: 1rem;   /* smaller heading */
+   .headerText h1 {
+    font-size: 2.2rem;
     font-weight: 700;
   }
 
@@ -351,7 +345,7 @@
   }
 
   .slideContent {
-    height: 140px; /* shorter carousel for tiny screens */
+    height: 140px;
   }
 
   .slideOverlay {
@@ -360,7 +354,7 @@
 
   .infoSection {
     padding: 1rem;
-    max-height: 45vh;  /* allow more scroll space */
+    max-height: 45vh;
   }
 
   .infoSection h3 {
@@ -380,10 +374,74 @@
   }
 
   .contactBtn {
-    margin-left: 0;              /* center instead of 200px offset */
+    margin-left: 0;
     display: block;
-    margin: 0.8rem auto 0;       /* center button */
+    margin: 0.8rem auto 0;
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
+  }
+}
+
+/* ======================= */
+/* 4. Small Mobiles        */
+/* ======================= */
+
+@media (min-width: 321px) and (max-width: 420px) {
+   .headerText h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .headerText p {
+    font-size: 0.85rem;
+  }
+
+  .customSwiper {
+    width: 92%;
+    max-width: 350px;
+    margin: 0.8rem auto;
+  }
+
+  .slideContent {
+    height: 180px;
+  }
+
+  .slideOverlay {
+    font-size: 1.2rem;
+  }
+
+  .infoSection {
+    padding: 1.2rem;
+    max-height: 45vh;
+  }
+
+  .infoSection h3 {
+    font-size: 1.1rem;
+  }
+
+  .infoSection h4 {
+    font-size: 1rem;
+  }
+
+  .infoSection ul {
+    font-size: 0.9rem;
+  }
+
+  .infoSection p {
+    font-size: 0.85rem;
+  }
+
+  .contactBtn {
+    margin-left: 0;
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 417px) and (max-width: 523px) {
+  .headerText h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
   }
 }

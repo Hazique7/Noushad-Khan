@@ -32,7 +32,7 @@ export default function About() {
           </div>
 
           <div className="headerText">
-            <h1 className="MobileH1">NOUSHAD KHAN</h1>
+            <h1 >NOUSHAD KHAN</h1>
             <p className="Mobilep">Since 1998, delivered trusted real estate expertise in Karachi.</p>
           </div>
 
